@@ -48,5 +48,7 @@ Ennek alkalmazás célja a beltéri helymeghatározás. Biztosítja azt, hogy be
  - **Kivitelező:** 
 
 ## 8.) Fogalomszótár
-
-
+ - **Wi-Fi:** A wifi hálózat rádióhullámokat használ a számítógépek közötti adatátvitelhez. Wifi hálózat szinonímájaként a WLAN hálózat (Wireless Local Area Network ) kifejezést is használják, amelynek jelentése vezeték nélküli helyi hálózat.
+ - **GPS:** (GPS, Global Positioning System, Globális Helymeghatározó Rendszer) Az Amerikai Egyesült Államok Védelmi Minisztériuma (Department of Defense) által (elsődlegesen katonai célokra) kifejlesztett és üzemeltetett – a Föld bármely pontján, a nap 24 órájában működő – globális műholdas navigációs rendszer (GNSS).
+ - **Érzékelő:** Az érzékelő vagy szenzor olyan elem, amely egy mérendő tulajdonságtól függő jelet szolgáltat. A mérendő tulajdonság és a jel egyaránt lehet fizikai, kémiai, biológiai stb. jellegű. Fontos, hogy a mérendő tulajdonság, és az érzékelő által szolgáltatott jel egymásnak kölcsönösen egyértelmű függvényei legyenek.
+ - **Android:** Az Android Linux kernelt használó mobil operációs rendszer, elsősorban érintőképernyős mobil eszközökre (okostelefon, táblagép) tervezve. Fejlesztését az Android, Inc. kezdte el, amelyet 2005-ben a Google felvásárolt, majd az Open Handset Alliance folytatta. A fejlesztők Java nyelven írhatnak rá menedzselt kódot, az eszközt a Google által fejlesztett Java programkönyvtárakon keresztül vezérelve. Az első androidos telefon 2008 októberében jelent meg.
