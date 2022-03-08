@@ -4,10 +4,10 @@
 Ennek alkalmazás célja a beltéri helymeghatározás. Biztosítja azt, hogy beltéren megtudjuk határozni a telefonunk valós helyzetét és azt egy alkalmazáson belül valósítjuk meg. A helymeghatározás Wi-Fi jelerőségen keresztül fog történi. Az alkalmazás Android felületen fog futni. Az adatokat gráfokon fogjuk megjeleníteni.
 
 ## 2.) Vágyálom rendszer leírása
-- - Egy mobilalkalmazás fejlesztése a cél, melyben beltéri lokalizáció segítségével képesek vagyunk meghatározni a tartózkodási helyünket
-- - A helymeghatározás megvalósítása Wi-Fi jelerősség használatával fog történni
-- - További céljaink között szerepel az, hogy az adatokat gráfok segítségével meg tudjuk jeleníteni
-- - Az alkalmazásunkat Android felületen futtathatónak és könnyen kezelhetőnek tervezzük, hogy a hozzá nem értők számára is felfogható legyen
+- Egy mobilalkalmazás fejlesztése a cél, melyben beltéri lokalizáció segítségével képesek vagyunk meghatározni a tartózkodási helyünket
+- A helymeghatározás megvalósítása Wi-Fi jelerősség használatával fog történni
+- További céljaink között szerepel az, hogy az adatokat gráfok segítségével meg tudjuk jeleníteni
+- Az alkalmazásunkat Android felületen futtathatónak és könnyen kezelhetőnek tervezzük, hogy a hozzá nem értők számára is felfogható legyen
 
 ## 3.) A rendszerre vonatkozó pályázat, törvények, rendeletek, szabványok és ajánlások felsorolása
 
