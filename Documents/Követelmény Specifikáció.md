@@ -1,6 +1,7 @@
 # Követelmény Specifikáció
 
 ## 1.) Jelenlegi helyzet leírása
+Ennek alkalmazás célja a beltéri helymeghatározás. Biztosítja azt, hogy beltéren megtudjuk határozni a telefonunk valós helyzetét és azt egy alkalmazáson belül valósítjuk meg. A helymeghatározás Wi-Fi jelerőségen keresztül fog történi. Az alkalmazás Android felületen fog futni. Az adatokat gráfokon fogjuk megjeleníteni.
 
 ## 2.) Vágyálom rendszer leírása
 
