@@ -112,6 +112,8 @@ d) az adatkezelés biztonságának garantálására hozott technikai és szervez
 ## 5.) Igényelt üzleti folyamatok modellje:
 
 ## 6.) Követelménylista
+- Mérések: A felhasználó tudjon méréseket végezni az Android applikációval.
+- Vizualizálás: A felhasználó a mért adatokat meg tudja jeleníteni gráfokon.
 
 ## 7.) Irányított és szabad szöveges riportok
 - **Kivitelező:** 
