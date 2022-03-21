@@ -115,11 +115,11 @@ Mérés vége gomb: Megnyomásig tárolja a szenzorok értékeit.
 - Automatikus adatátvitel: A felhasználónak könnyen kell tudnia exportálni a mért adatokat az Android applikációból és importálni ezeket a Python alkalmazásba.
 
 ## 7.) Irányított és szabad szöveges riportok
-- **Kivitelező:** 
- - **Megrendelő:** 
- - **Kivitelező:** 
- - **Megrendelő:**  
- - **Kivitelező:** 
+- **Kivitelező:**Kérem mondja el milyen programra lenne szüksége!
+ - **Megrendelő:** Egy olyan alkalmazást szeretnék mobilra, amely alkalmas beltéri helymeghatározásra. 
+ - **Kivitelező:** Hogyan gondolta ezt megvalósítani?
+ - **Megrendelő:**  Úgy, hogy egy könnyen kezelhető mobilalkalmazás keretein belül meg tudjuk határozni a saját tartózkodási helyzetünket beltéren és az ehhez tartozó adatokat látni lehessen egy grafikonon is.
+ - **Kivitelező:** Rendben, a csapatom és én megpróbáljuk a legjobb tudásunk szerint megcsinálni az Ön által megálmodott alkalmazást!
 
 ## 8.) Fogalomszótár
  - **GPS:** (GPS, Global Positioning System, Globális Helymeghatározó Rendszer) Az Amerikai Egyesült Államok Védelmi Minisztériuma (Department of Defense) által (elsődlegesen katonai célokra) kifejlesztett és üzemeltetett – a Föld bármely pontján, a nap 24 órájában működő – globális műholdas navigációs rendszer (GNSS).
