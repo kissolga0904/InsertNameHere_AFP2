@@ -102,15 +102,10 @@ d) az adatkezelés biztonságának garantálására hozott technikai és szervez
 Üzleti munkatárs: 	
 -	karbantartó
 
-Üzleti entitások: 		
--	email cím
--	Leadboard
-
-Üzleti folyamatok:
--	Program menete: 
--	Értékelés: 
+A mai világban szinte mindenkinek van mobiltelefonja, ezáltal rengeteg dologra használhatjuk, anélkül, hogy különböző eszközöket vásárolnánk. A mobiltelefonokra például lehetne egy olyan alkalmazás, amely képes meghatározni a felhasználó helyzetét egy épületen belül. A GPS elterjedt a mai világban, viszont beltéri pontos helyzet meghatározására is szükség lehet.
 
 ## 5.) Igényelt üzleti folyamatok modellje:
+
 
 ## 6.) Követelménylista
 - Mérések: A felhasználó tudjon méréseket végezni az Android applikációval.
