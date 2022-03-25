@@ -1,0 +1,43 @@
+<Manager>:
+    MenuScreen:
+    ChooseFileScreen:
+    ChooseGraphScreen:
+
+<MenuScreen>:
+    name:"menu_screen"
+    FloatLayout:
+        Label:
+            text: "InsertNameHere"
+            halign: "center"
+            font_size: 36
+            size_hint_y: .1
+            pos_hint: {"top": 1}
+        Button:
+            text: "Choose File"
+            size_hint_y: .2
+            pos_hint: {"top": .6}
+            on_release: root.go_file_screen()
+
+<ChooseFileScreen>:
+    name:"choose_file_screen"
+    FloatLayout:
+        FileChooserListView:
+            id: file_chooser
+            pos_hint:{"top":1}
+            size_hint_y:.95
+            on_selection:root.test_button(file_chooser.selection)
+        BoxLayout:
+            Label:
+                size_hint_x:.8
+                size_hint_y:.05
+                text:file_chooser.selection[0] if root.can_load(file_chooser.selection) else "Please choose a valid json file"
+            Button:
+                id: load_button
+                text:"Load File"
+                size_hint_x:.2
+                size_hint_y:.05
+                on_release:root.load(file_chooser.selection)
+                disabled:True
+
+<ChooseGraphScreen>:
+    name:"choose_graph_screen"
