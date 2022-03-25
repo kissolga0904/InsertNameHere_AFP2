@@ -2,4 +2,5 @@
     <string name="app_name">InsertNameHere DataGatherer</string>
     <string name="start_gathering">Start Gathering</string>
     <string name="export_error">Something went wrong while exporting data...</string>
+    <string name="export_data">Export Data</string>
 </resources>

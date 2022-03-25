@@ -22,6 +22,10 @@
             android:name=".DataGathererActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".BiasCalibrationActivity"
+            android:exported="true">
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
