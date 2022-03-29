@@ -13,9 +13,12 @@ Ennek alkalmazás célja a beltéri helymeghatározás. Biztosítja azt, hogy be
 ## 4.) Követelmények
 
 ### Funkcionális követelmények:
+- Bővíthetőség: A kezelt adatok mennyiségének, valamint a felhasználók számának bővíthetősége és utólag újabb funkciók hozzáadásának lehetőségének biztosítása.
 
 ### Nem Funkcionális követelmények:
-
+- Egyszerű, pontosan értelmezhető, letisztult, felhasználóbarát felület
+- Egyszerűen használható kezelőfelület
+- Felhasználók adatainak biztonsága
 
 ## 5.) Jelenlegi üzleti folyamatok modellje
 
