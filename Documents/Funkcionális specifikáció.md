@@ -1,5 +1,6 @@
 # Funkcionális Specifikáció 
 ## 1.) Áttekintés
+Az alkalmazás célja, helymeghatározás beltéren. Az alkalmazás rendelkezik Android felülettel, ahol elérhetőek a felhasználói funkciók. A mért adatok egy grafikon formájában is megtekinthetőek. A helymeghatározás alapja a WIFI jelerősség, mely alapján meghatározza az applikáció a felhasználó pontos tartózkodási helyét.
 
 ## 2.) Jelenlegi helyzet
 Ennek alkalmazás célja a beltéri helymeghatározás. Biztosítja azt, hogy beltéren megtudjuk határozni a telefonunk valós helyzetét különböző szenzorok fúziójával. Az alkalmazás Android felületen fog futni. Az adatokat és azoknak fúzióját egy Python alkalmazás segítségével fogjuk grafikonokon megjeleníteni.
