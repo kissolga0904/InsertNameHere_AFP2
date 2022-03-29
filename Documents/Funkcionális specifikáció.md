@@ -24,7 +24,7 @@
 Üzleti folyamatok: 	
 
 ## 6.) Igényelt üzleti folyamatok
-
+Néhány gombnyomással meghatározható a felhasználó beltéri helyzete. Mérés kezdete gomb: Megnyomástól számítva tárolja a szenzorok értékeit. Mérés vége gomb: Megnyomásig tárolja a szenzorok értékeit.
 
 ## 7.) Használati esetek
 
