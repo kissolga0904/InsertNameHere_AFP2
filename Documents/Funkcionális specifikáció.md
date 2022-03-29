@@ -2,6 +2,7 @@
 ## 1.) Áttekintés
 
 ## 2.) Jelenlegi helyzet
+Ennek alkalmazás célja a beltéri helymeghatározás. Biztosítja azt, hogy beltéren megtudjuk határozni a telefonunk valós helyzetét különböző szenzorok fúziójával. Az alkalmazás Android felületen fog futni. Az adatokat és azoknak fúzióját egy Python alkalmazás segítségével fogjuk grafikonokon megjeleníteni.
 
 ## 3.) Követelménylista
 - Mérések: A felhasználó tudjon méréseket végezni az Android applikációval.
