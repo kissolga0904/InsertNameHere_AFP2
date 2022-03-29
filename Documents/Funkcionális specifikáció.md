@@ -13,15 +13,14 @@
 
 
 ## 5.) Jelenlegi üzleti folyamatok modellje
+
 Üzleti szereplők: 	
 -	felhasználó
 
 Üzleti munkatárs: 	
 -	karbantartó
 
-Üzleti entitások: 		
-
-Üzleti folyamatok: 	
+A mai világban szinte mindenkinek van mobiltelefonja, ezáltal rengeteg dologra használhatjuk, anélkül, hogy különböző eszközöket vásárolnánk. A mobiltelefonokra például lehetne egy olyan alkalmazás, amely képes meghatározni a felhasználó helyzetét egy épületen belül. A GPS elterjedt a mai világban, viszont beltéri pontos helyzet meghatározására is szükség lehet.
 
 ## 6.) Igényelt üzleti folyamatok
 Néhány gombnyomással meghatározható a felhasználó beltéri helyzete. Mérés kezdete gomb: Megnyomástól számítva tárolja a szenzorok értékeit. Mérés vége gomb: Megnyomásig tárolja a szenzorok értékeit.
