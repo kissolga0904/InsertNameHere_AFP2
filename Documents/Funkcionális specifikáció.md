@@ -4,6 +4,9 @@
 ## 2.) Jelenlegi helyzet
 
 ## 3.) Követelménylista
+- Mérések: A felhasználó tudjon méréseket végezni az Android applikációval.
+- Vizualizálás: A felhasználó a mért adatokat meg tudja jeleníteni grafikonokon egy Python alkalmazás segítségével.
+- Automatikus adatátvitel: A felhasználónak könnyen kell tudnia exportálni a mért adatokat az Android applikációból és importálni ezeket a Python alkalmazásba.
   
 ## 4.) Követelmények
 
