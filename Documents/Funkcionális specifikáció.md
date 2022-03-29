@@ -30,9 +30,13 @@ Néhány gombnyomással meghatározható a felhasználó beltéri helyzete. Mér
 ## 8.) Képernyőtervek
 
 ## 9.) Funkció-követelmény megfeleltetés
-### Funkciókövetelmények megfeleltetés:
+### Funkcionális követelmények:
+- Bővíthetőség: A kezelt adatok mennyiségének, valamint a felhasználók számának bővíthetősége és utólag újabb funkciók hozzáadásának lehetőségének biztosítása.
 
-### Nem Funkció-követelmény megfeleltetés:
+### Nem Funkcionális követelmények:
+- Egyszerű, pontosan értelmezhető, letisztult, felhasználóbarát felület
+- Egyszerűen használható kezelőfelület
+- Felhasználók adatainak biztonsága
 
 ## 10.) Forgatókönyv
 
