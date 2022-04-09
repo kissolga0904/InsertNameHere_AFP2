@@ -64,4 +64,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(switchToDataGathererActivityIntent);
         finish();
     }
+
+    public void onCalcBiasClicked(View view) {
+        Intent switchToDataGathererActivityIntent = new Intent(this, BiasCalibrationActivity.class);
+        switchToDataGathererActivityIntent.putExtra("sensorDelay", selectedSensorDelay);
+        startActivity(switchToDataGathererActivityIntent);
+        finish();
+    }
 }

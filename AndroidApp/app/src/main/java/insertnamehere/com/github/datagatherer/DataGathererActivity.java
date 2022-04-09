@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.DoubleStream;
 
 public class DataGathererActivity extends SensorActivity {
 
@@ -67,22 +68,32 @@ public class DataGathererActivity extends SensorActivity {
     private void writeData(JsonWriter writer) throws IOException {
         writer.beginObject();
 
-        writer.name("accelerometer"); writeXyzArray(writer, ACCELEROMETER_VALUES);
+        writer.name("accelerometer"); writeXyzList(writer, ACCELEROMETER_VALUES);
         writer.name("accelerometer_timestamps"); writeTimestamps(writer, ACCELEROMETER_TIMESTAMPS);
-        writer.name("gyroscope"); writeXyzArray(writer, GYROSCOPE_VALUES);
+        writer.name("accelerometer_std"); writeXyzArray(writer, getStandardDeviationArray(ACCELEROMETER_VALUES));
+        writer.name("accelerometer_bias"); writeXyzArray(writer, BiasCalibrationActivity.ACCELEROMETER_BIAS);
+        writer.name("gyroscope"); writeXyzList(writer, GYROSCOPE_VALUES);
         writer.name("gyroscope_timestamps"); writeTimestamps(writer, GYROSCOPE_TIMESTAMPS);
-        writer.name("magnetometer"); writeXyzArray(writer, MAGNETOMETER_VALUES);
+        writer.name("gyroscope_std"); writeXyzArray(writer, getStandardDeviationArray(GYROSCOPE_VALUES));
+        writer.name("gyroscope_bias"); writeXyzArray(writer, BiasCalibrationActivity.GYROSCOPE_BIAS);
+        writer.name("magnetometer"); writeXyzList(writer, MAGNETOMETER_VALUES);
         writer.name("magnetometer_timestamps"); writeTimestamps(writer, MAGNETOMETER_TIMESTAMPS);
+        writer.name("magnetometer_std"); writeXyzArray(writer, getStandardDeviationArray(MAGNETOMETER_VALUES));
+        writer.name("magnetometer_bias"); writeXyzArray(writer, BiasCalibrationActivity.MAGNETOMETER_BIAS);
 
         writer.endObject();
     }
 
-    private void writeXyzArray(JsonWriter writer, List<float[]> values) throws IOException {
+    private void writeXyzList(JsonWriter writer, List<float[]> values) throws IOException {
         writer.beginArray();
         for (float[] value : values) {
             writer.value(String.format(Locale.ENGLISH, "%f;%f;%f", value[0], value[1], value[2]));
         }
         writer.endArray();
+    }
+
+    private void writeXyzArray(JsonWriter writer, float[] values) throws IOException {
+        writer.value(String.format(Locale.ENGLISH, "%f;%f;%f", values[0], values[1], values[2]));
     }
 
     private void writeTimestamps(JsonWriter writer, ArrayList<Long> values) throws IOException {
@@ -93,7 +104,24 @@ public class DataGathererActivity extends SensorActivity {
         writer.endArray();
     }
 
-    private String floatXYZToString(String sensorName, float[] values) {
-        return String.format(Locale.ENGLISH, "%s:\n  x: %f\n  y: %f\n  z: %f", sensorName, values[0], values[1], values[2]);
+    private float[] getStandardDeviationArray(ArrayList<float[]> values) {
+        return new float[] {
+                (float)getStandardDeviation(values, 0),
+                (float)getStandardDeviation(values, 1),
+                (float)getStandardDeviation(values, 2),
+        };
+    }
+
+    private double getStandardDeviation(ArrayList<float[]> valueList, int index) {
+        DoubleStream values = valueList.stream().mapToDouble(f -> f[index]);
+        double mean = values.average().orElse(0);
+        ArrayList<Double> squaredDiffs = new ArrayList<>();
+        for (float[] value : valueList) {
+            double diff = mean - value[index];
+            squaredDiffs.add(Math.pow(diff, 2));
+        }
+        double sum = squaredDiffs.stream().mapToDouble(d -> d).sum();
+        double variance = sum / (squaredDiffs.size()-1);
+        return Math.sqrt(variance);
     }
 }

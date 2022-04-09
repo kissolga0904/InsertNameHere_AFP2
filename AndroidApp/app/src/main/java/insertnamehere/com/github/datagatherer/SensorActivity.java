@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class SensorActivity extends AppCompatActivity implements SensorEventListener {
     protected final ArrayList<float[]> ACCELEROMETER_VALUES = new ArrayList<>(); // m/s^2 [1+3]
@@ -21,7 +22,7 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
     protected final ArrayList<Long> MAGNETOMETER_TIMESTAMPS = new ArrayList<>();
 
     private SensorManager sensorManager;
-    protected Sensor accelerometer, gyroscope, magnetometer;
+    protected Sensor accelerometer, gyroscope, magnetometer, gravity;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,11 +39,13 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         gyroscope = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
         magnetometer = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        gravity = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
 
         Logger.debug("SensorActivity#onCreate: Registering Sensor Listeners");
         sensorManager.registerListener(this, accelerometer, sensorDelay);
         sensorManager.registerListener(this, gyroscope, sensorDelay);
         sensorManager.registerListener(this, magnetometer, sensorDelay);
+        sensorManager.registerListener(this, gravity, sensorDelay);
         Logger.debug("SensorActivity#onCreate: Initialization Complete!");
     }
 
@@ -104,5 +107,9 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
         accelerometer = null;
         sensorManager = null;
         super.onDestroy();
+    }
+
+    protected String floatXYZToString(String sensorName, float[] values) {
+        return String.format(Locale.ENGLISH, "%s:\n  x: %f\n  y: %f\n  z: %f", sensorName, values[0], values[1], values[2]);
     }
 }
