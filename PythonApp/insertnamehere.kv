@@ -2,6 +2,7 @@
     MenuScreen:
     ChooseFileScreen:
     ChooseGraphScreen:
+    GraphScreen:
 
 <MenuScreen>:
     name:"menu_screen"
@@ -41,3 +42,39 @@
 
 <ChooseGraphScreen>:
     name:"choose_graph_screen"
+    FloatLayout:
+        Button:
+            text:"Accelerometer"
+            pos_hint: {"top":1}
+            size_hint_x:.5
+            size_hint_y:.1
+            on_release:root.show_graph("accelerometer")
+        Button:
+            text:"Gyroscope"
+            pos_hint: {"top":1, "x":.5}
+            size_hint_x:.5
+            size_hint_y:.1
+            on_release:root.show_graph("gyroscope")
+        Button:
+            text:"Magnetometer"
+            pos_hint: {"top":.9}
+            size_hint_x:.5
+            size_hint_y:.1
+            on_release:root.show_graph("magnetometer")
+
+<GraphScreen>:
+    name:"graph_screen"
+    FloatLayout:
+        BoxLayout:
+            id: graph
+            pos_hint:{"top": 1}
+            size_hint_y:.9
+        BoxLayout:
+            id: export
+            size_hint_y:.1
+            Button:
+                text:"Back"
+                on_release:root.manager.current = "choose_graph_screen"
+            Button:
+                text:"Export"
+                on_release:root.export()
