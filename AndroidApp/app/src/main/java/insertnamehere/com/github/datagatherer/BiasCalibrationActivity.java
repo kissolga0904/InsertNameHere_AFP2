@@ -8,9 +8,9 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class BiasCalibrationActivity extends AppCompatActivity implements SensorEventListener {
+public class BiasCalibrationActivity extends SensorActivity {
 
-    // TODO calculate error bias for accelerometer and gyroscope with stationary phone
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
