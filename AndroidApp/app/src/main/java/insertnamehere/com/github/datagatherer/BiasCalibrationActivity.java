@@ -97,4 +97,20 @@ public class BiasCalibrationActivity extends SensorActivity {
         DoubleStream values = valueList.stream().mapToDouble(f -> f[index]);
         return values.average().orElse(0) - knownBias[index];
     }
+
+    public static float[] getBias(String sensor) {
+        float[] bias = null;
+        switch (sensor) {
+            case "Accelerometer":
+                bias = ACCELEROMETER_BIAS;
+                break;
+            case "Gyroscope":
+                bias = GYROSCOPE_BIAS;
+                break;
+            case "Magnetometer":
+                bias = MAGNETOMETER_BIAS;
+                break;
+        }
+        return bias;
+    }
 }

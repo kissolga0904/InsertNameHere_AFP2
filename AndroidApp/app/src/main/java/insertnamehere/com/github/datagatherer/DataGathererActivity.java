@@ -68,23 +68,33 @@ public class DataGathererActivity extends SensorActivity {
     private void writeData(JsonWriter writer) throws IOException {
         writer.beginObject();
 
-        writer.name("accelerometer"); writeXyzList(writer, ACCELEROMETER_VALUES);
-        writer.name("accelerometer_timestamps"); writeTimestamps(writer, ACCELEROMETER_TIMESTAMPS);
-        writer.name("accelerometer_std"); writeXyzArray(writer, getStandardDeviationArray(ACCELEROMETER_VALUES));
-        writer.name("accelerometer_bias"); writeXyzArray(writer, BiasCalibrationActivity.ACCELEROMETER_BIAS);
-        writer.name("gyroscope"); writeXyzList(writer, GYROSCOPE_VALUES);
-        writer.name("gyroscope_timestamps"); writeTimestamps(writer, GYROSCOPE_TIMESTAMPS);
-        writer.name("gyroscope_std"); writeXyzArray(writer, getStandardDeviationArray(GYROSCOPE_VALUES));
-        writer.name("gyroscope_bias"); writeXyzArray(writer, BiasCalibrationActivity.GYROSCOPE_BIAS);
-        writer.name("magnetometer"); writeXyzList(writer, MAGNETOMETER_VALUES);
-        writer.name("magnetometer_timestamps"); writeTimestamps(writer, MAGNETOMETER_TIMESTAMPS);
-        writer.name("magnetometer_std"); writeXyzArray(writer, getStandardDeviationArray(MAGNETOMETER_VALUES));
-        writer.name("magnetometer_bias"); writeXyzArray(writer, BiasCalibrationActivity.MAGNETOMETER_BIAS);
+        writeSensorData(writer, "accelerometer", ACCELEROMETER_VALUES, ACCELEROMETER_TIMESTAMPS);
+        writeSensorData(writer, "gyroscope", GYROSCOPE_VALUES, GYROSCOPE_TIMESTAMPS);
+        writeSensorData(writer, "magnetometer", MAGNETOMETER_VALUES, MAGNETOMETER_TIMESTAMPS);
 
         writer.endObject();
     }
 
-    private void writeXyzList(JsonWriter writer, List<float[]> values) throws IOException {
+    private void writeSensorData(JsonWriter writer, String sensorName, ArrayList<float[]> values, ArrayList<Long> timestamps) throws IOException {
+        writer.name(sensorName); writer.beginObject();
+
+        writer.name("values"); writeXyzList(writer, values);
+        writer.name("timestamps"); writeTimestamps(writer, timestamps);
+        float[] mean = getMeanArray(values);
+        writer.name("mean"); writeXyzArray(writer, mean);
+        float[] variance = getVarianceArray(values, mean);
+        writer.name("variance"); writeXyzArray(writer, variance);
+        float[] standardDeviation = getStandardDeviationArray(variance);
+        writer.name("standard_deviation"); writeXyzArray(writer, standardDeviation);
+        float[] bias = BiasCalibrationActivity.getBias(sensorName);
+        if (bias != null) {
+            writer.name("bias"); writeXyzArray(writer, bias);
+        }
+
+        writer.endObject();
+    }
+
+    private void writeXyzList(JsonWriter writer, ArrayList<float[]> values) throws IOException {
         writer.beginArray();
         for (float[] value : values) {
             writer.value(String.format(Locale.ENGLISH, "%f;%f;%f", value[0], value[1], value[2]));
@@ -104,24 +114,46 @@ public class DataGathererActivity extends SensorActivity {
         writer.endArray();
     }
 
-    private float[] getStandardDeviationArray(ArrayList<float[]> values) {
+    private float[] getMeanArray(ArrayList<float[]> values) {
         return new float[] {
-                (float)getStandardDeviation(values, 0),
-                (float)getStandardDeviation(values, 1),
-                (float)getStandardDeviation(values, 2),
+                (float)getMean(values, 0),
+                (float)getMean(values, 1),
+                (float)getMean(values, 2)
         };
     }
 
-    private double getStandardDeviation(ArrayList<float[]> valueList, int index) {
+    private float[] getVarianceArray(ArrayList<float[]> values, float[] mean) {
+        return new float[] {
+                (float)getVariance(values, 0, mean[0]),
+                (float)getVariance(values, 1, mean[1]),
+                (float)getVariance(values, 2, mean[2])
+        };
+    }
+
+    private float[] getStandardDeviationArray(float[] variance) {
+        return new float[] {
+                (float)getStandardDeviation(variance[0]),
+                (float)getStandardDeviation(variance[1]),
+                (float)getStandardDeviation(variance[2])
+        };
+    }
+
+    private double getMean(ArrayList<float[]> valueList, int index) {
         DoubleStream values = valueList.stream().mapToDouble(f -> f[index]);
-        double mean = values.average().orElse(0);
+        return values.average().orElse(0);
+    }
+
+    private double getVariance(ArrayList<float[]> valueList, int index, double mean) {
         ArrayList<Double> squaredDiffs = new ArrayList<>();
         for (float[] value : valueList) {
             double diff = mean - value[index];
             squaredDiffs.add(Math.pow(diff, 2));
         }
         double sum = squaredDiffs.stream().mapToDouble(d -> d).sum();
-        double variance = sum / (squaredDiffs.size()-1);
+        return sum / (squaredDiffs.size()-1);
+    }
+
+    private double getStandardDeviation(double variance) {
         return Math.sqrt(variance);
     }
 }
