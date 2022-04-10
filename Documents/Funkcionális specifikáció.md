@@ -1,3 +1,4 @@
+
 # Funkcionális Specifikáció 
 ## 1.) Áttekintés
 Az alkalmazás célja, helymeghatározás beltéren. Az alkalmazás rendelkezik Android felülettel, ahol elérhetőek a felhasználói funkciók. A mért adatok egy grafikon formájában is megtekinthetőek. A helymeghatározás alapja a WIFI jelerősség, mely alapján meghatározza az applikáció a felhasználó pontos tartózkodási helyét.
@@ -28,6 +29,18 @@ Néhány gombnyomással meghatározható a felhasználó beltéri helyzete. Mér
 ## 7.) Megfeleltetés, hogyan fedik le a használati esetek a követelményeket
 
 ## 8.) Képernyőtervek
+
+### Android App:
+ - Main Activity: 
+ ![MainActivity](https://raw.githubusercontent.com/kissolga0904/InsertNameHere_AFP2/main/Documents/Screen%20Plans/AndroidApp/MainActivity.png) 
+ - Bias Calibration Activity:
+ ![BiasCalibrationActivity](https://raw.githubusercontent.com/kissolga0904/InsertNameHere_AFP2/main/Documents/Screen%20Plans/AndroidApp/BiasCalibrationActivity.png)
+ - Data Gatherer Activity:
+ ![DataGathererActivity](https://raw.githubusercontent.com/kissolga0904/InsertNameHere_AFP2/main/Documents/Screen%20Plans/AndroidApp/DataGathererActivity.png)
+ - Graph Selector Activity:
+ ![GraphSelectorActivity](https://raw.githubusercontent.com/kissolga0904/InsertNameHere_AFP2/main/Documents/Screen%20Plans/AndroidApp/GraphSelectorActivity.png)
+ - Graph Activity:
+ ![GraphActivity](https://raw.githubusercontent.com/kissolga0904/InsertNameHere_AFP2/main/Documents/Screen%20Plans/AndroidApp/GraphActivity.png)
 
 ## 9.) Funkció-követelmény megfeleltetés
 ### Funkcionális követelmények:
