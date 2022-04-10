@@ -32,14 +32,19 @@ Néhány gombnyomással meghatározható a felhasználó beltéri helyzete. Mér
 
 ### Android App:
  - Main Activity: 
+ 
  ![MainActivity](https://raw.githubusercontent.com/kissolga0904/InsertNameHere_AFP2/main/Documents/Screen%20Plans/AndroidApp/MainActivity.png) 
  - Bias Calibration Activity:
+ 
  ![BiasCalibrationActivity](https://raw.githubusercontent.com/kissolga0904/InsertNameHere_AFP2/main/Documents/Screen%20Plans/AndroidApp/BiasCalibrationActivity.png)
  - Data Gatherer Activity:
+ 
  ![DataGathererActivity](https://raw.githubusercontent.com/kissolga0904/InsertNameHere_AFP2/main/Documents/Screen%20Plans/AndroidApp/DataGathererActivity.png)
  - Graph Selector Activity:
+ 
  ![GraphSelectorActivity](https://raw.githubusercontent.com/kissolga0904/InsertNameHere_AFP2/main/Documents/Screen%20Plans/AndroidApp/GraphSelectorActivity.png)
  - Graph Activity:
+ 
  ![GraphActivity](https://raw.githubusercontent.com/kissolga0904/InsertNameHere_AFP2/main/Documents/Screen%20Plans/AndroidApp/GraphActivity.png)
 
 ## 9.) Funkció-követelmény megfeleltetés
