@@ -1,5 +1,6 @@
 # Rendszerterv
 ## 1.) A rendszer célja
+Az alkalmazás célja, helymeghatározás beltéren. Biztosítja azt, hogy beltéren megtudjuk határozni a telefonunk valós helyzetét különböző szenzorok fúziójával. Az alkalmazás rendelkezik Android felülettel, ahol elérhetőek a felhasználói funkciók. A mért adatok egy grafikon formájában is megtekinthetőek, ez Python alkalmazás segítségével történik. A helymeghatározás alapja a WIFI jelerősség, mely alapján meghatározza az applikáció a felhasználó pontos tartózkodási helyét.
 
 ## 2.) Projektterv
 ### Projektszerepkörök, felelőssége
