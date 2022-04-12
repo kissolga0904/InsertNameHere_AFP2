@@ -25,6 +25,7 @@ A mai világban szinte mindenkinek van mobiltelefonja, ezáltal rengeteg dologra
 Néhány gombnyomással meghatározható a felhasználó beltéri helyzete. Mérés kezdete gomb: Megnyomástól számítva tárolja a szenzorok értékeit. Mérés vége gomb: Megnyomásig tárolja a szenzorok értékeit.
 
 ## 6.) Használati esetek
+Felhasználó: A felhasználóknak hozzá kell tudni férniük a szenzorok listájához, ahol tudnak fájlt exportálni, azalapján grafikont kirajzoltatni.
 
 ## 7.) Megfeleltetés, hogyan fedik le a használati esetek a követelményeket
 A felhasználó adatai biztonságosan van eltárolva, úgy hogy csak a rendszergazda és a felhasználó férjen csak hozzá. Az érzékelők által begyűjtött adatok szintén ilyen módszer biztonságos helyen lesznek eltárolva. Ezeket a felhasználó szükség esetén le bírja kérdezni bármikor. 
