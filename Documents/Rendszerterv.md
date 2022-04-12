@@ -125,6 +125,12 @@ az adatkezelés biztonságának garantálására hozott technikai és szervezés
    - Képes megjeleníteni a mért adatokat grafikonokon
 
 ## 6.) Fizikai környezet
+ - Az alkalmazás Android platformra készül
+ - Mellé van egy bemutató Python app, hogy hogyan használhatjuk fel az exportált adatokat
+ - Fejlesztői eszközök:
+   - Android Studio
+   - Gradle
+   - PyCharm
 
 ## 7.) Architekturális terv
 ### Backend:
