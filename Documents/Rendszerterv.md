@@ -128,6 +128,7 @@ az adatkezelés biztonságának garantálására hozott technikai és szervezés
 ### Web kliens:
 
 ## 8.) Adatbázis terv
+Nem használunk adatbázist jelenleg!
 
 ## 9.) Implementációs terv
 ### Alkalmazott technológiák
