@@ -27,6 +27,8 @@ Néhány gombnyomással meghatározható a felhasználó beltéri helyzete. Mér
 ## 6.) Használati esetek
 
 ## 7.) Megfeleltetés, hogyan fedik le a használati esetek a követelményeket
+A felhasználó adatai biztonságosan van eltárolva, úgy hogy csak a rendszergazda és a felhasználó férjen csak hozzá. Az érzékelők által begyűjtött adatok szintén ilyen módszer biztonságos helyen lesznek eltárolva. Ezeket a felhasználó szükség esetén le bírja kérdezni bármikor. 
+A felület egyszerű és felhasználóbarát, így könnyen lehet majd kezelni és egyben látványos lesz. 
 
 ## 8.) Képernyőtervek
 
