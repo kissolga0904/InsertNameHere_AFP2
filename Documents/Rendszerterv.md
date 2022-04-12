@@ -117,8 +117,12 @@ az adatkezelés biztonságának garantálására hozott technikai és szervezés
 
 ## 5.) Funkcionális terv
 ### Rendszerszereplők
-
+ - Felhasználó
 ### Rendszerhasználati esetek és lefutásaik
+ - Felhasználó:
+   - Képes adatokat mérni
+   - Képes exportálni a mért adatokat
+   - Képes megjeleníteni a mért adatokat grafikonokon
 
 ## 6.) Fizikai környezet
 
