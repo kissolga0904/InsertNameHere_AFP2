@@ -4,10 +4,19 @@ Az alkalmazás célja, helymeghatározás beltéren. Biztosítja azt, hogy belt�
 
 ## 2.) Projektterv
 ### Projektszerepkörök, felelőssége
+- Developer: Kulcsár Vivien, Kiss Olga, Molnár Viktor, Galvács István
 
 ### Közös feladatok
+- Követelmény specifikáció megírása
+- Funkcionális specifikáció megírása
+- Rendszerterv elkészítése
 
 ### Mérföldkövek
+- Szenzor adatok mérése
+- Szenzor adatok exportálása
+- Szenzor adatok grafikonon való megjelenítése
+- Szenzor adatok feldolgozása
+- Feldolgozott adatok megjelenítése
 
 ## 3.) Üzleti folyamatok modellje
 ### Üzleti szereplők: 	
