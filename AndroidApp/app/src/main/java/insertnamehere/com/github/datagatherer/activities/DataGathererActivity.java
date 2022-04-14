@@ -41,7 +41,7 @@ public class DataGathererActivity extends SensorActivity {
         Intent switchToMainActivityIntent = new Intent(this, MainActivity.class);
 
         boolean writeData = new DataExporter(this).write();
-        switchToMainActivityIntent.putExtra("exportError", writeData);
+        switchToMainActivityIntent.putExtra("exportError", !writeData);
 
         startActivity(switchToMainActivityIntent);
         finish();
