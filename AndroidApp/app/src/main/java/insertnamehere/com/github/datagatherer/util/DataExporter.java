@@ -5,6 +5,7 @@ import android.util.JsonWriter;
 
 import androidx.annotation.Nullable;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import insertnamehere.com.github.datagatherer.activities.SensorActivity;
 
 public class DataExporter {
 
-    private static final String FILE_NAME = "/inh_datagatherer_export.json";
+    public static final String FILE_NAME = "/inh_datagatherer_export.json";
 
     private String path;
     private final ArrayList<float[]> accelerometerValues, gyroscopeValues, magnetometerValues;
@@ -27,7 +28,8 @@ public class DataExporter {
 
     public DataExporter(SensorActivity activity, @Nullable String path) {
         this(activity.accelerometerValues, activity.gyroscopeValues, activity.magnetometerValues,
-                activity.accelerometerTimestamps, activity.gyroscopeTimestamps, activity.magnetometerTimestamps, path);
+                activity.accelerometerTimestamps, activity.gyroscopeTimestamps, activity.magnetometerTimestamps,
+                path);
     }
 
     public DataExporter(ArrayList<float[]> accelerometerValues,
@@ -44,24 +46,27 @@ public class DataExporter {
         this.gyroscopeTimestamps = gyroscopeTimestamps;
         this.magnetometerTimestamps = magnetometerTimestamps;
         if (path == null)
-            this.path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)+FILE_NAME;
+            this.path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + FILE_NAME;
         else if (!path.endsWith(FILE_NAME))
-            this.path += FILE_NAME;
+            this.path = path + FILE_NAME;
     }
 
     public boolean write() {
         try {
+            File file = new File(path).getParentFile();
+            if (file != null && !file.exists()) {
+                file.mkdirs();
+            }
+
             JsonWriter writer = new JsonWriter(new FileWriter(path));
 
             writer.setIndent("    ");
             writeData(writer);
             writer.flush();
             writer.close();
-            Logger.info("Exported data to " + path);
             return true;
         } catch (Exception e) {
-            Logger.warn("Something went wrong with exporting the recorded data...");
-            Logger.error(e.getMessage());
+            e.printStackTrace();
             return false;
         }
     }
