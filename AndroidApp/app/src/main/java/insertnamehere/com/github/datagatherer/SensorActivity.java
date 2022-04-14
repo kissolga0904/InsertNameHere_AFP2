@@ -5,7 +5,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,12 +13,12 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class SensorActivity extends AppCompatActivity implements SensorEventListener {
-    protected final ArrayList<float[]> ACCELEROMETER_VALUES = new ArrayList<>(); // m/s^2 [1+3]
-    protected final ArrayList<float[]> GYROSCOPE_VALUES = new ArrayList<>(); // rad/s [1+3]
-    protected final ArrayList<float[]> MAGNETOMETER_VALUES = new ArrayList<>(); // uT [1+3]
-    protected final ArrayList<Long> ACCELEROMETER_TIMESTAMPS = new ArrayList<>();
-    protected final ArrayList<Long> GYROSCOPE_TIMESTAMPS = new ArrayList<>();
-    protected final ArrayList<Long> MAGNETOMETER_TIMESTAMPS = new ArrayList<>();
+    public final ArrayList<float[]> accelerometerValues = new ArrayList<>(); // m/s^2 [1+3]
+    public final ArrayList<float[]> gyroscopeValues = new ArrayList<>(); // rad/s [1+3]
+    public final ArrayList<float[]> magnetometerValues = new ArrayList<>(); // uT [1+3]
+    public final ArrayList<Long> accelerometerTimestamps = new ArrayList<>();
+    public final ArrayList<Long> gyroscopeTimestamps = new ArrayList<>();
+    public final ArrayList<Long> magnetometerTimestamps = new ArrayList<>();
 
     private SensorManager sensorManager;
     protected Sensor accelerometer, gyroscope, magnetometer, gravity;
@@ -59,7 +58,7 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
             recordData(
                     "Accelerometer",
                     event.values, event.timestamp,
-                    ACCELEROMETER_VALUES, ACCELEROMETER_TIMESTAMPS
+                    accelerometerValues, accelerometerTimestamps
             );
         }
         // TODO We need to find out the bias error of the gyroscope by taking an average of its
@@ -68,14 +67,14 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
             recordData(
                     "Gyroscope",
                     event.values, event.timestamp,
-                    GYROSCOPE_VALUES, GYROSCOPE_TIMESTAMPS
+                    gyroscopeValues, gyroscopeTimestamps
             );
         }
         if (sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
             recordData(
                     "Magnetometer",
                     event.values, event.timestamp,
-                    MAGNETOMETER_VALUES, MAGNETOMETER_TIMESTAMPS
+                    magnetometerValues, magnetometerTimestamps
             );
         }
     }
@@ -97,9 +96,9 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
 
     @Override
     protected void onDestroy() {
-        ACCELEROMETER_VALUES.clear();
-        GYROSCOPE_VALUES.clear();
-        MAGNETOMETER_VALUES.clear();
+        accelerometerValues.clear();
+        gyroscopeValues.clear();
+        magnetometerValues.clear();
 
         sensorManager.unregisterListener(this);
         magnetometer = null;
