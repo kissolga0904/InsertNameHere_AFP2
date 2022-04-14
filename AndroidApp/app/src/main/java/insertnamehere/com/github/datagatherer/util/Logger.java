@@ -1,4 +1,4 @@
-package insertnamehere.com.github.datagatherer;
+package insertnamehere.com.github.datagatherer.util;
 
 import android.util.Log;
 

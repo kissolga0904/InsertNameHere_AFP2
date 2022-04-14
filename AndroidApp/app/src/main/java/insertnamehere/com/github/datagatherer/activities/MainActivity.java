@@ -1,4 +1,4 @@
-package insertnamehere.com.github.datagatherer;
+package insertnamehere.com.github.datagatherer.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,9 @@ import android.widget.Spinner;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+
+import insertnamehere.com.github.datagatherer.R;
+import insertnamehere.com.github.datagatherer.util.Logger;
 
 public class MainActivity extends AppCompatActivity {
 

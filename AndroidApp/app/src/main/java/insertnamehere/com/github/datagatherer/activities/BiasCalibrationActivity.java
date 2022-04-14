@@ -1,19 +1,19 @@
-package insertnamehere.com.github.datagatherer;
+package insertnamehere.com.github.datagatherer.activities;
 
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.stream.DoubleStream;
+
+import insertnamehere.com.github.datagatherer.R;
+import insertnamehere.com.github.datagatherer.util.Logger;
 
 public class BiasCalibrationActivity extends SensorActivity {
 

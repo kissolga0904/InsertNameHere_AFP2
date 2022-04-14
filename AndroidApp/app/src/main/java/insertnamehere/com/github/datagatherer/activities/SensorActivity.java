@@ -1,4 +1,4 @@
-package insertnamehere.com.github.datagatherer;
+package insertnamehere.com.github.datagatherer.activities;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Locale;
+
+import insertnamehere.com.github.datagatherer.util.Logger;
 
 public class SensorActivity extends AppCompatActivity implements SensorEventListener {
     public final ArrayList<float[]> accelerometerValues = new ArrayList<>(); // m/s^2 [1+3]

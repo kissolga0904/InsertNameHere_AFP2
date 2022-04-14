@@ -10,9 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import insertnamehere.com.github.datagatherer.BiasCalibrationActivity;
-import insertnamehere.com.github.datagatherer.Logger;
-import insertnamehere.com.github.datagatherer.SensorActivity;
+import insertnamehere.com.github.datagatherer.activities.BiasCalibrationActivity;
+import insertnamehere.com.github.datagatherer.activities.SensorActivity;
 
 public class DataExporter {
 

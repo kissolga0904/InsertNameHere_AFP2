@@ -1,20 +1,15 @@
-package insertnamehere.com.github.datagatherer;
+package insertnamehere.com.github.datagatherer.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.JsonWriter;
 import android.view.View;
 import android.widget.TextView;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.stream.DoubleStream;
 
+import insertnamehere.com.github.datagatherer.R;
 import insertnamehere.com.github.datagatherer.util.DataExporter;
+import insertnamehere.com.github.datagatherer.util.Logger;
 
 public class DataGathererActivity extends SensorActivity {
 
