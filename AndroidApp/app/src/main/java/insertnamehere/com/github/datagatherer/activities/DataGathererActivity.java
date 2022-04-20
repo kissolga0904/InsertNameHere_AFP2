@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import insertnamehere.com.github.datagatherer.R;
 import insertnamehere.com.github.datagatherer.util.DataExporter;
+import insertnamehere.com.github.datagatherer.util.DataMath;
 import insertnamehere.com.github.datagatherer.util.Logger;
 
 public class DataGathererActivity extends SensorActivity {
@@ -38,7 +39,15 @@ public class DataGathererActivity extends SensorActivity {
     }
 
     public void onExportButtonClicked(View view) {
-        Intent switchToMainActivityIntent = new Intent(this, MainActivity.class);
+        DataMath.clearDataList();
+        DataMath.addData(DataMath.createSensorData("Accelerometer", accelerometerValues,
+                accelerometerTimestamps, BiasCalibrationActivity.ACCELEROMETER_BIAS));
+        DataMath.addData(DataMath.createSensorData("Gyroscope", gyroscopeValues,
+                gyroscopeTimestamps, BiasCalibrationActivity.GYROSCOPE_BIAS));
+        DataMath.addData(DataMath.createSensorData("Magnetometer", magnetometerValues,
+                magnetometerTimestamps, BiasCalibrationActivity.MAGNETOMETER_BIAS));
+
+        Intent switchToMainActivityIntent = new Intent(this, GraphSelectorActivity.class);
 
         boolean writeData = new DataExporter(this).write();
         switchToMainActivityIntent.putExtra("exportError", !writeData);

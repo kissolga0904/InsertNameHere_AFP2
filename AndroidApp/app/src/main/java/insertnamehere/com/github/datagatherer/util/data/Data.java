@@ -1,42 +1,66 @@
 package insertnamehere.com.github.datagatherer.util.data;
 
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.DoubleStream;
 
 public class Data {
     String name;
     double[][] data;
-    long[][] time;
+    long[] time;
+    float[] bias;
 
-    public Data(String name, double[][] data, long[][] time){
+    public Data(String name, double[][] data, long[] time) {
+        this(name, data, time, null);
+    }
+
+    public Data(String name, double[][] data, long[] time, @Nullable float[] bias){
         this.name = name;
         this.data = data;
         this.time = time;
+        this.bias = bias;
     }
 
-    public double[] getMeanArray() {
-        return new double[] {
-                getMean(data[0]),
-                getMean(data[1]),
-                getMean(data[2])
-        };
+    public String getName(){
+        return name;
     }
 
-    public double[] getVarianceArray(double[] mean) {
-        return new double[] {
-                getVariance(data[0], mean[0]),
-                getVariance(data[1], mean[1]),
-                getVariance(data[2], mean[2])
-        };
+    @Nullable
+    public float[] getBias() {
+        return bias;
     }
 
-    public double[] getStandardDeviationArray(double[] variance) {
-        return new double[] {
-                getStandardDeviation(variance[0]),
-                getStandardDeviation(variance[1]),
-                getStandardDeviation(variance[2])
-        };
+
+
+    public Double[] getMeanArray() {
+        List<Double> means = new ArrayList<>();
+        for (double[] value : data) {
+            Double mean = getMean(value);
+            means.add(mean);
+        }
+        return means.toArray(new Double[0]);
+    }
+
+    public Double[] getVarianceArray(double[] mean) {
+        List<Double> variances = new ArrayList<>();
+        for (int i = 0; i < data.length; i++) {
+            Double variance = getVariance(data[i], mean[i]);
+            variances.add(variance);
+        }
+        return variances.toArray(new Double[0]);
+    }
+
+    public Double[] getStandardDeviationArray(double[] variance) {
+        List<Double> stds = new ArrayList<>();
+        for (double value : variance) {
+            Double std = getStandardDeviation(value);
+            stds.add(std);
+        }
+        return stds.toArray(new Double[0]);
     }
 
     private static double getMean(double[] valuesArray) {

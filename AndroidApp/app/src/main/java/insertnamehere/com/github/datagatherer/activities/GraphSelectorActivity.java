@@ -13,26 +13,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 import insertnamehere.com.github.datagatherer.R;
+import insertnamehere.com.github.datagatherer.util.DataMath;
 import insertnamehere.com.github.datagatherer.util.data.Data;
 
 public class GraphSelectorActivity extends AppCompatActivity {
 
-    List<Data> data = new ArrayList<>();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Data[] data = DataMath.getData();
 
         LinearLayout layout = findViewById(R.id.linearLayout);
-        // TODO add buttons programatically with LinearLayout#addView
 
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        Button button = new Button(this);
-        button.setLayoutParams(layoutParams);
-        button.setText("valami");
-        button.setOnClickListener(view -> {
-
-        });
+        for(Data d : data){
+            Button button = new Button(this);
+            button.setLayoutParams(layoutParams);
+            button.setText(d.getName());
+            button.setOnClickListener(view -> {
+            });
+            layout.addView(button);
+        }
     }
 }

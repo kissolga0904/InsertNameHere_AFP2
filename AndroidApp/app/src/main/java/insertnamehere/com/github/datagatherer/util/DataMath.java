@@ -1,9 +1,40 @@
 package insertnamehere.com.github.datagatherer.util;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
+
+import insertnamehere.com.github.datagatherer.util.data.Data;
 
 public class DataMath {
+
+    static List<Data>  dataList = new ArrayList<>();
+
+    public static void clearDataList(){
+        dataList.clear();
+    }
+
+    public static void addData(Data data){
+        dataList.add(data);
+    }
+
+    public static Data createSensorData(String name, ArrayList<float[]> values,
+                                        ArrayList<Long> timestamps, float[] bias ){
+        List<double[]> dataList = new ArrayList<>();
+        for (float[] data : values) {
+            double[] dataAsDouble = IntStream.range(0, data.length).mapToDouble(i -> data[i]).toArray();
+            dataList.add(dataAsDouble);
+        }
+        double[][] data = dataList.toArray(new double[0][0]);
+        long first = timestamps.get(0);
+        long[] time = timestamps.stream().mapToLong(t -> t-first).toArray();
+        return new Data(name, data, time, bias);
+    }
+
+    public static Data[] getData(){
+        return dataList.toArray(new Data[0]);
+    }
 
     public static float[] getMeanArray(ArrayList<float[]> values) {
         return new float[] {
