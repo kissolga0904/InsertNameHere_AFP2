@@ -18,21 +18,25 @@ public class GraphSelectorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_graph_selector);
+
         Map<String, Data> data = DataMath.getData();
 
         LinearLayout layout = findViewById(R.id.linearLayout);
 
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        for (Map.Entry<String, Data> entry : data.entrySet()) {
-            Button button = new Button(this);
-            button.setLayoutParams(layoutParams);
-            button.setText(entry.getKey());
-            button.setOnClickListener(view -> {
-                this.onDataButtonClicked(entry.getValue());
-            });
-            layout.addView(button);
+        if (layout != null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            for (Map.Entry<String, Data> entry : data.entrySet()) {
+                Button button = new Button(this);
+                button.setLayoutParams(layoutParams);
+                button.setText(entry.getKey());
+                button.setOnClickListener(view -> {
+                    this.onDataButtonClicked(entry.getValue());
+                });
+                layout.addView(button);
+            }
         }
     }
 
