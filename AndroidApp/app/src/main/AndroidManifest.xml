@@ -26,6 +26,10 @@
             android:name=".activities.BiasCalibrationActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".activities.GraphSelectorActivity"
+            android:exported="true">
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
