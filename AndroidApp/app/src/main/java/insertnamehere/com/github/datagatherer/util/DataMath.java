@@ -1,7 +1,9 @@
 package insertnamehere.com.github.datagatherer.util;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
@@ -9,17 +11,17 @@ import insertnamehere.com.github.datagatherer.util.data.Data;
 
 public class DataMath {
 
-    static List<Data>  dataList = new ArrayList<>();
+    static Map<String, Data> DATA = new HashMap<>();
 
     public static void clearDataList(){
-        dataList.clear();
+        DATA.clear();
     }
 
-    public static void addData(Data data){
-        dataList.add(data);
+    public static void addData(String name, Data data){
+        DATA.put(name, data);
     }
 
-    public static Data createSensorData(String name, ArrayList<float[]> values,
+    public static Data createSensorData(ArrayList<float[]> values,
                                         ArrayList<Long> timestamps, float[] bias ){
         List<double[]> dataList = new ArrayList<>();
         for (float[] data : values) {
@@ -29,11 +31,11 @@ public class DataMath {
         double[][] data = dataList.toArray(new double[0][0]);
         long first = timestamps.get(0);
         long[] time = timestamps.stream().mapToLong(t -> t-first).toArray();
-        return new Data(name, data, time, bias);
+        return new Data(data, time, bias);
     }
 
-    public static Data[] getData(){
-        return dataList.toArray(new Data[0]);
+    public static Map<String, Data> getData() {
+        return DATA;
     }
 
     public static float[] getMeanArray(ArrayList<float[]> values) {

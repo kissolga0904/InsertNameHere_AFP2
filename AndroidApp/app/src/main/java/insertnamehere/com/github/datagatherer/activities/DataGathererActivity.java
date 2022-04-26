@@ -40,11 +40,11 @@ public class DataGathererActivity extends SensorActivity {
 
     public void onExportButtonClicked(View view) {
         DataMath.clearDataList();
-        DataMath.addData(DataMath.createSensorData("Accelerometer", accelerometerValues,
+        DataMath.addData("Accelerometer", DataMath.createSensorData(accelerometerValues,
                 accelerometerTimestamps, BiasCalibrationActivity.ACCELEROMETER_BIAS));
-        DataMath.addData(DataMath.createSensorData("Gyroscope", gyroscopeValues,
+        DataMath.addData("Gyroscope", DataMath.createSensorData(gyroscopeValues,
                 gyroscopeTimestamps, BiasCalibrationActivity.GYROSCOPE_BIAS));
-        DataMath.addData(DataMath.createSensorData("Magnetometer", magnetometerValues,
+        DataMath.addData("Magnetometer", DataMath.createSensorData(magnetometerValues,
                 magnetometerTimestamps, BiasCalibrationActivity.MAGNETOMETER_BIAS));
 
         Intent switchToMainActivityIntent = new Intent(this, GraphSelectorActivity.class);

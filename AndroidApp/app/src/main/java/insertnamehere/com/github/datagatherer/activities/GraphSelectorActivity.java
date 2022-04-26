@@ -1,16 +1,13 @@
 package insertnamehere.com.github.datagatherer.activities;
 
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 import insertnamehere.com.github.datagatherer.R;
 import insertnamehere.com.github.datagatherer.util.DataMath;
@@ -21,20 +18,25 @@ public class GraphSelectorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Data[] data = DataMath.getData();
+        Map<String, Data> data = DataMath.getData();
 
         LinearLayout layout = findViewById(R.id.linearLayout);
 
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        for(Data d : data){
+        for (Map.Entry<String, Data> entry : data.entrySet()) {
             Button button = new Button(this);
             button.setLayoutParams(layoutParams);
-            button.setText(d.getName());
+            button.setText(entry.getKey());
             button.setOnClickListener(view -> {
+                this.onDataButtonClicked(entry.getValue());
             });
             layout.addView(button);
         }
+    }
+
+    private void onDataButtonClicked(Data data) {
+        // TODO show graph activity with data
     }
 }

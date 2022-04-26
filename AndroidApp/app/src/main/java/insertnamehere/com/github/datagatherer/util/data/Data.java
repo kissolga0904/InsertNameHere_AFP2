@@ -9,24 +9,18 @@ import java.util.Optional;
 import java.util.stream.DoubleStream;
 
 public class Data {
-    String name;
     double[][] data;
     long[] time;
     float[] bias;
 
-    public Data(String name, double[][] data, long[] time) {
-        this(name, data, time, null);
+    public Data(double[][] data, long[] time) {
+        this(data, time, null);
     }
 
-    public Data(String name, double[][] data, long[] time, @Nullable float[] bias){
-        this.name = name;
+    public Data(double[][] data, long[] time, @Nullable float[] bias) {
         this.data = data;
         this.time = time;
         this.bias = bias;
-    }
-
-    public String getName(){
-        return name;
     }
 
     @Nullable
