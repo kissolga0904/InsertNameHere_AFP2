@@ -1,4 +1,4 @@
-package insertnamehere.com.github.datagatherer.util.data;
+package insertnamehere.com.github.datagatherer.util;
 
 import androidx.annotation.Nullable;
 
@@ -9,18 +9,26 @@ import java.util.Optional;
 import java.util.stream.DoubleStream;
 
 public class Data {
-    double[][] data;
-    long[] time;
+    List<float[]> data;
+    List<Long> time;
     float[] bias;
 
-    public Data(double[][] data, long[] time) {
+    protected Data(List<float[]> data, List<Long> time) {
         this(data, time, null);
     }
 
-    public Data(double[][] data, long[] time, @Nullable float[] bias) {
+    protected Data(List<float[]> data, List<Long> time, @Nullable float[] bias) {
         this.data = data;
         this.time = time;
         this.bias = bias;
+    }
+
+    public List<float[]> getData() {
+        return data;
+    }
+
+    public List<Long> getTime() {
+        return time;
     }
 
     @Nullable
@@ -28,43 +36,42 @@ public class Data {
         return bias;
     }
 
-
-
     public Double[] getMeanArray() {
         List<Double> means = new ArrayList<>();
-        for (double[] value : data) {
-            Double mean = getMean(value);
-            means.add(mean);
+        for (float[] value : data) {
+            float mean = getMean(value);
+            means.add((double) mean);
         }
         return means.toArray(new Double[0]);
     }
 
-    public Double[] getVarianceArray(double[] mean) {
+    public Double[] getVarianceArray(Double[] mean) {
         List<Double> variances = new ArrayList<>();
-        for (int i = 0; i < data.length; i++) {
-            Double variance = getVariance(data[i], mean[i]);
+        for (int i = 0; i < data.size(); i++) {
+            Double variance = getVariance(data.get(i), mean[i]);
             variances.add(variance);
         }
         return variances.toArray(new Double[0]);
     }
 
-    public Double[] getStandardDeviationArray(double[] variance) {
+    public Double[] getStandardDeviationArray(Double[] variance) {
         List<Double> stds = new ArrayList<>();
         for (double value : variance) {
-            Double std = getStandardDeviation(value);
+            double std = getStandardDeviation(value);
             stds.add(std);
         }
         return stds.toArray(new Double[0]);
     }
 
-    private static double getMean(double[] valuesArray) {
-        DoubleStream values = Arrays.stream(valuesArray);
-        return values.average().orElse(0);
+    private static float getMean(float[] valuesArray) {
+        float sum = 0;
+        for (float f : valuesArray) sum += f;
+        return sum / valuesArray.length;
     }
 
-    private static double getVariance(double[] valuesArray, double mean) {
+    private static double getVariance(float[] valuesArray, double mean) {
         ArrayList<Double> squaredDiffs = new ArrayList<>();
-        for (double value : valuesArray) {
+        for (float value : valuesArray) {
             double diff = mean - value;
             squaredDiffs.add(Math.pow(diff, 2));
         }

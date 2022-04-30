@@ -54,8 +54,6 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
     public void onSensorChanged(SensorEvent event) {
         Sensor sensor = event.sensor;
 
-        // TODO We need to find out the bias error of the accelerometer by taking an average of its
-        //   output while it is not undergoing any acceleration. Then we can just subtract it from the output
         if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             recordData(
                     "Accelerometer",
@@ -63,8 +61,6 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
                     accelerometerValues, accelerometerTimestamps
             );
         }
-        // TODO We need to find out the bias error of the gyroscope by taking an average of its
-        //   output while it is not undergoing any rotation. Then we can just subtract it from the output
         if (sensor.getType() == Sensor.TYPE_GYROSCOPE) {
             recordData(
                     "Gyroscope",

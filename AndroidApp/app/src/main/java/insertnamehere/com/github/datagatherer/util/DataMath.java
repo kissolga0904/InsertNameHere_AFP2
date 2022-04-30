@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
-
-import insertnamehere.com.github.datagatherer.util.data.Data;
 
 public class DataMath {
 
@@ -22,16 +20,33 @@ public class DataMath {
     }
 
     public static Data createSensorData(ArrayList<float[]> values,
-                                        ArrayList<Long> timestamps, float[] bias ){
-        List<double[]> dataList = new ArrayList<>();
-        for (float[] data : values) {
-            double[] dataAsDouble = IntStream.range(0, data.length).mapToDouble(i -> data[i]).toArray();
-            dataList.add(dataAsDouble);
+                                        ArrayList<Long> timestamps, float[] bias){
+        List<float[]> dataValues = new ArrayList<>();
+        List<Long> dataTimestamps = timestamps.stream().distinct().collect(Collectors.toList());
+        for (int i = 0; i < dataTimestamps.size(); i++) {
+            float[] summed = new float[3];
+            int startIndex = timestamps.indexOf(dataTimestamps.get(i));
+            int endIndex = 0;
+            for (int j = startIndex; j < values.size(); j++) {
+                if (timestamps.get(j).equals(dataTimestamps.get(i))) {
+                    summed[0] += values.get(j)[0];
+                    summed[1] += values.get(j)[1];
+                    summed[2] += values.get(j)[2];
+                }
+                else {
+                    endIndex = j;
+                    break;
+                }
+            }
+            int size = endIndex-startIndex+1;
+            summed[0] /= size;
+            summed[1] /= size;
+            summed[2] /= size;
+            dataValues.add(summed);
         }
-        double[][] data = dataList.toArray(new double[0][0]);
-        long first = timestamps.get(0);
-        long[] time = timestamps.stream().mapToLong(t -> t-first).toArray();
-        return new Data(data, time, bias);
+        long first = dataTimestamps.get(0);
+        dataTimestamps = dataTimestamps.stream().map(l -> l-first).collect(Collectors.toList());
+        return new Data(dataValues, dataTimestamps, bias);
     }
 
     public static Map<String, Data> getData() {

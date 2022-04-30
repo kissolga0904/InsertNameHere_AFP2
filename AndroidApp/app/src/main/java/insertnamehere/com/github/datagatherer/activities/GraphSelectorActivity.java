@@ -1,5 +1,6 @@
 package insertnamehere.com.github.datagatherer.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -11,7 +12,7 @@ import java.util.Map;
 
 import insertnamehere.com.github.datagatherer.R;
 import insertnamehere.com.github.datagatherer.util.DataMath;
-import insertnamehere.com.github.datagatherer.util.data.Data;
+import insertnamehere.com.github.datagatherer.util.Data;
 
 public class GraphSelectorActivity extends AppCompatActivity {
 
@@ -41,6 +42,8 @@ public class GraphSelectorActivity extends AppCompatActivity {
     }
 
     private void onDataButtonClicked(Data data) {
-        // TODO show graph activity with data
+        GraphActivity.setSelectedData(data);
+        Intent switchToGraphActivity = new Intent(this, GraphActivity.class);
+        startActivity(switchToGraphActivity);
     }
 }
